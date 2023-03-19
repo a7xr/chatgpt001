@@ -56,3 +56,7 @@ function chatStripe(isAi, value, uniqueId) {
           </div>
       `;
 }
+
+const handleSubmit = async (e) => {
+    
+}
