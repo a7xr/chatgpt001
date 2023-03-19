@@ -67,8 +67,16 @@ const handleSubmit = async (e) => {
 
     form.reset()
 
-// bot's chatstripe
+    // bot's chatstripe
     const uniqueId = generateUniqueId();
     chatContainer.innerHTML += chatStripe(true, " ", uniqueId);
 
+    // to focus scroll to the bottom
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+
+    // specific message div
+    const messageDiv = document.getElementById(uniqueId);
+
+    
 }
