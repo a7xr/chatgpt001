@@ -78,5 +78,7 @@ const handleSubmit = async (e) => {
     // specific message div
     const messageDiv = document.getElementById(uniqueId);
 
-    
+    // messageDiv.innerHTML = "..."
+    loader(messageDiv);
+
 }
