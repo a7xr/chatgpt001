@@ -43,12 +43,12 @@ function generateUniqueId() {
 
 function chatStripe(isAi, value, uniqueId) {
   return `
-          <div class="wrapper ${isAi && 'ai'}">
+          <div class="wrapper ${isAi && "ai"}">
               <div class="chat">
                   <div class="profile">
                       <img 
                         src=${isAi ? bot : user} 
-                        alt="${isAi ? 'bot' : 'user'}" 
+                        alt="${isAi ? "bot" : "user"}" 
                       />
                   </div>
                   <div class="message" id=${uniqueId}>${value}</div>
@@ -58,35 +58,33 @@ function chatStripe(isAi, value, uniqueId) {
 }
 
 const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const data = new FormData(form);
+  const data = new FormData(form);
 
-    // user's chatstripe
-    chatContainer.innerHTML += chatStripe(false, data.get("prompt"));
+  // user's chatstripe
+  chatContainer.innerHTML += chatStripe(false, data.get("prompt"));
 
-    form.reset()
+  form.reset();
 
-    // bot's chatstripe
-    const uniqueId = generateUniqueId();
-    chatContainer.innerHTML += chatStripe(true, " ", uniqueId);
+  // bot's chatstripe
+  const uniqueId = generateUniqueId();
+  chatContainer.innerHTML += chatStripe(true, " ", uniqueId);
 
-    // to focus scroll to the bottom
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+  // to focus scroll to the bottom
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 
+  // specific message div
+  const messageDiv = document.getElementById(uniqueId);
 
-    // specific message div
-    const messageDiv = document.getElementById(uniqueId);
-
-    // messageDiv.innerHTML = "..."
-    loader(messageDiv);
-
-}
+  // messageDiv.innerHTML = "..."
+  loader(messageDiv);
+};
 
 form.addEventListener("submit", handleSubmit);
 form.addEventListener("keyup", (e) => {
   if (e.keyCode === 13) {
-      handleSubmit(e);
+    handleSubmit(e);
   }
 });
 
