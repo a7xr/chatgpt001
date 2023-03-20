@@ -21,4 +21,12 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.post('/', async(req, res) => {})
+app.post('/', async(req, res) => {
+    try {
+        const prompt = req.body.prompt;
+
+        // const response = await openai.
+    }catch (error) {
+
+    }
+})
