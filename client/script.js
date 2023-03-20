@@ -89,6 +89,8 @@ const handleSubmit = async (e) => {
       prompt: data.get("prompt"),
     }),
   });
+
+  clearInterval(loadInterval);
 };
 
 form.addEventListener("submit", handleSubmit);
