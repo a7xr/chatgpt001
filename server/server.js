@@ -20,4 +20,5 @@ app.get("/", async (req, res) => {
     message: "Hello from CodeX!",
   });
 });
- 
+
+app.post()
